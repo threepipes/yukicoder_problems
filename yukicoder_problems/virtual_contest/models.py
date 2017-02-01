@@ -1,14 +1,6 @@
 from django.db import models
 
 # Create your models here.
-class User(models.Model):
-    name = models.CharField(max_length=30)
-    user_id = models.IntegerField()
-
-    def __str__(self):
-        return '%s(%d)' % (self.name, self.user_id)
-
-
 class Problem(models.Model):
     name = models.CharField(max_length=50)
     points = models.IntegerField()
@@ -16,6 +8,15 @@ class Problem(models.Model):
 
     def __str__(self):
         return '%s[id=%d, %dpt]' % (self.name, self.problem_id, self.points)
+
+
+class User(models.Model):
+    name = models.CharField(max_length=30)
+    user_id = models.IntegerField()
+    solved = models.ManyToManyField(Problem)
+
+    def __str__(self):
+        return '%s(%d)' % (self.name, self.user_id)
 
 
 class Submission(models.Model):
