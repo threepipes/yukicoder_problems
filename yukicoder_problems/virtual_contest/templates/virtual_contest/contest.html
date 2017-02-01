@@ -1,0 +1,6 @@
+<h1>{{ contest.name }}</h1>
+<ul>
+{% for problem in contest.problems.all %}
+    <li>{{ problem.name }}/{{ problem.points }}</li>
+{% endfor %}
+</ul>

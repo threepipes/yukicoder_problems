@@ -1,0 +1,11 @@
+<h1>新規コンテスト作成</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'virtual_contest:contest' contest.id %}" method="post">
+{% csrf_token %}
+<h2>問題選択</h2>
+<h2>参加者選択</h2>
+
+<input type="submit" value="作成" />
+</form>
