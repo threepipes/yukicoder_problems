@@ -9,7 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     {% load static %}
-    <script type="text/javascript" src="{% static "virtual_contest/base.js" %}"></script>
+    <script type="text/javascript" src="{% static 'virtual_contest/base.js' %}"></script>
     <style type="css/text">
     </style>
   </head>
@@ -18,7 +18,7 @@
         <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">yukicoder virtual contest(非公式)</a>
+                <a class="navbar-brand" href="{% url 'virtual_contest:index' %}">yukicoder virtual contest(非公式)</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
