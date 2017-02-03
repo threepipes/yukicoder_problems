@@ -1,9 +1,35 @@
-{% if contest_list %}
-    <ul>
-    {% for contest in contest_list %}
-        <li><a href="{% url 'virtual_contest:contest' contest.id %}">{{ contest.name }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No contests.</p>
-{% endif %}
+{% extends 'virtual_contest\base.html' %}
+
+{% block title %}yukicoder virtual contest (非公式){% endblock %}
+{% block header %}コンテスト一覧{% endblock %}
+
+{% block content %}
+
+<table class="table table-striped table-responsive table-hover">
+    <thead>
+        <tr>
+            <th class="col-sm-6">コンテスト名</th>
+            <div class="col-sm-6">
+                <th>開始</th>
+                <th>終了</th>
+                <th>参加人数</th>
+            </div>
+        </tr>
+    </thead>
+    <tbody>
+        {% if contest_list %}
+            {% for contest in contest_list %}
+            <tr>
+                <th><a href="{% url 'virtual_contest:contest' contest.id %}">{{ contest.name }}</a></th>
+                <th>{{ contest.start_time }}</th>
+                <th>{{ contest.end_time }}</th>
+                <th>-</th>
+            </tr>
+            {% endfor %}
+        {% else %}
+            <tr>No contests.</tr>
+        {% endif %}
+    </tbody>
+</table>
+
+{% endblock %}
