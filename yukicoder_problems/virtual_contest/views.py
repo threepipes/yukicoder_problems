@@ -14,7 +14,7 @@ def index(request):
 
 
 def create_contest(request):
-    return HttpResponse("Create contest")
+    return render(request, 'virtual_contest/create_contest.html')
 
 
 def contest(request, contest_id):
