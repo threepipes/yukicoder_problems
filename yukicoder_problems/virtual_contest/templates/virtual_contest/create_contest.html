@@ -9,8 +9,9 @@
     {% csrf_token %}
 
     <div class="row" id="contest_name" style="margin: 40px -15px;">
+        <div class="col-sm-1"></div>
         <div class="col-sm-2">コンテスト名</div>
-        <div class="col-sm-6 form-inline">
+        <div class="col-sm-5 form-inline">
             <input type="text" class="form-control input-sm" id="input_name" placeholder="コンテスト名" size=60>
         </div>
         <div class="col-sm-2">
@@ -18,26 +19,27 @@
         </div>
     </div>
     <div class="row">
-        <div id="problems" class="col-sm-6">
+        <div class="col-sm-1"></div>
+        <div id="problems" class="col-sm-5">
             <div class="row">
-                <div class="col-sm-2">問題番号</div>
-                <div class="col-sm-4 form-inline">
+                <div class="col-sm-3">問題番号</div>
+                <div class="col-sm-5 form-inline">
                     <input type="text" class="form-control input-sm" id="input_add_problem" placeholder="問題番号">
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-2">
                     <button id="add_problem" class="btn btn-success btn-add">追加</button>
                 </div>
             </div>
             <div id="add_problem_content" class="added_content">
             </div>
         </div>
-        <div id="members" class="col-sm-6">
+        <div id="members" class="col-sm-5">
             <div class="row">
-                <div class="col-sm-2">ユーザ名</div>
-                <div class="col-sm-4 form-inline">
+                <div class="col-sm-3">ユーザ名</div>
+                <div class="col-sm-5 form-inline">
                     <input type="text" class="form-control input-sm" id="input_add_user" placeholder="ユーザ名">
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-2">
                     <button id="add_user" class="btn btn-success btn-add">追加</button>
                 </div>
             </div>
