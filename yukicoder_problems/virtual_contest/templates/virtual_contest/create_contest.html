@@ -12,10 +12,22 @@
         <div class="col-sm-1"></div>
         <div class="col-sm-2">コンテスト名</div>
         <div class="col-sm-5 form-inline">
-            <input type="text" class="form-control input-sm" id="input_name" placeholder="コンテスト名" size=60>
+            <input type="text" class="form-control input-sm" id="input_name" placeholder="コンテスト名" size=60 required>
         </div>
         <div class="col-sm-2">
-            <input type="submit" value="作成" class="form-control input-sm btn btn-primary" />
+            <input type="submit" value="作成" class="form-control input-sm btn btn-primary" id="submit" />
+        </div>
+    </div>
+    <div class="row" id="start_time">
+        <div class="col-sm-3">開始日時</div>
+        <div class="col-sm-5 form-inline">
+            <input type="datetime" class="form-control input-sm" id="input_start" placeholder="開始日時">
+        </div>
+    </div>
+    <div class="row" id="end_time">
+        <div class="col-sm-3">終了日時</div>
+        <div class="col-sm-5 form-inline">
+            <input type="datetime" class="form-control input-sm" id="input_end" placeholder="終了日時">
         </div>
     </div>
     <div class="row">

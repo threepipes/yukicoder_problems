@@ -54,10 +54,11 @@ jQuery(function(){
             'success':function(response){
                 content = response.name;
                 if(content == ''){
-                    alert(content_type+': 番号'+name+'は存在しません');
+                    alert(content_type+' ID: '+name+'は存在しません');
                 }else{
                     form.val('');
                     display_name = content;
+                    // 文字列じゃなくてjQueryの記法に直す TODO
                     $(content_name).append(
                         '           <div class="'+ content_type +'">'+
                         '               <input type="hidden" name="'+ content_type +'[]" value="'+ name +'">'+
@@ -75,4 +76,19 @@ jQuery(function(){
     $('.added_content').on('click', '.delete', function(){
         $(this).parent().parent().remove();
     });
+
+    $('#submit').click(function(){
+        var users = $('#add_user_content').length;
+        var probs = $('#add_problem_content').length;
+        var contest_name = $(':text#input_name');
+        if(probs == 0){
+            alert('問題を追加してください．')
+            return;
+        }
+        if(users == 0){
+            alert('参加者を追加してください．')
+            return;
+        }
+        
+    })
 });

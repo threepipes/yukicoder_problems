@@ -14,7 +14,12 @@ def index(request):
 
 
 def create_contest(request):
-    return render(request, 'virtual_contest/create_contest.html')
+    if request.method == 'POST':
+        contest_set = Contest.objects
+        contest_id = len(contest_set.all())
+        # TODO
+    else:
+        return render(request, 'virtual_contest/create_contest.html')
 
 
 def contest(request, contest_id):
