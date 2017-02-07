@@ -90,5 +90,12 @@ jQuery(function(){
             return;
         }
         
-    })
+    });
+
+
+
+    $('.date').datetimepicker({
+        locale: 'ja',
+        format : 'YYYY-MM-DD HH:mm:ss'
+    });
 });

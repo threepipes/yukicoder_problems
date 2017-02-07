@@ -1,5 +1,12 @@
 {% extends 'virtual_contest\base.html' %}
 
+{% block subheader %}
+<link rel="stylesheet" href="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/v4.0.0/build/css/bootstrap-datetimepicker.css">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+<script src="moment-ja.js"></script>
+<script src="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/v4.0.0/src/js/bootstrap-datetimepicker.js"></script>
+{% endblock %}
+
 {% block title %}コンテスト作成ページ{% endblock %}
 {% block header %}新規コンテスト作成{% endblock %}
 
@@ -8,7 +15,7 @@
 <!--need form!!-->
     {% csrf_token %}
 
-    <div class="row" id="contest_name" style="margin: 40px -15px;">
+    <div class="row" id="contest_name" style="margin: 20px -15px;">
         <div class="col-sm-1"></div>
         <div class="col-sm-2">コンテスト名</div>
         <div class="col-sm-5 form-inline">
@@ -19,18 +26,20 @@
         </div>
     </div>
     <div class="row" id="start_time">
-        <div class="col-sm-3">開始日時</div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2">開始日時</div>
         <div class="col-sm-5 form-inline">
-            <input type="datetime" class="form-control input-sm" id="input_start" placeholder="開始日時">
+            <input type="text" class="form-control input-sm date" id="input_start" placeholder="開始日時" />
         </div>
     </div>
     <div class="row" id="end_time">
-        <div class="col-sm-3">終了日時</div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2">終了日時</div>
         <div class="col-sm-5 form-inline">
-            <input type="datetime" class="form-control input-sm" id="input_end" placeholder="終了日時">
+            <input type="text" class="form-control input-sm date" id="input_end" placeholder="終了日時">
         </div>
     </div>
-    <div class="row">
+    <div class="row" style="margin: 10px -15px;">
         <div class="col-sm-1"></div>
         <div id="problems" class="col-sm-5">
             <div class="row">
