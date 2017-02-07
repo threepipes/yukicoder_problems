@@ -39,10 +39,10 @@ jQuery(function(){
     $('.btn-add').click(function(){
         var add_type = this.id;
         var content_name = '#'+add_type+'_content';
-        var size = $(content_name).length;
+        var content_type = add_type.slice(4);
+        var size = $('#'+content_type).length;
         var form = $(':text#input_'+add_type);
         var name = form.val();
-        var content_type = add_type.slice(4);
 
         $.ajax({
             'url': add_type+'/',
@@ -78,8 +78,8 @@ jQuery(function(){
     });
 
     $('#submit').click(function(){
-        var users = $('#add_user_content').length;
-        var probs = $('#add_problem_content').length;
+        var users = $('.user').length;
+        var probs = $('.problem').length;
         var contest_name = $(':text#input_name');
         if(probs == 0){
             alert('問題を追加してください．')
@@ -89,10 +89,8 @@ jQuery(function(){
             alert('参加者を追加してください．')
             return;
         }
-        
+        $('#create').submit();
     });
-
-
 
     $('.date').datetimepicker({
         locale: 'ja',

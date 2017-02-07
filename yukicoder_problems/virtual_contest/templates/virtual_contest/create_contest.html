@@ -3,7 +3,6 @@
 {% block subheader %}
 <link rel="stylesheet" href="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/v4.0.0/build/css/bootstrap-datetimepicker.css">
 <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
-<script src="moment-ja.js"></script>
 <script src="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/v4.0.0/src/js/bootstrap-datetimepicker.js"></script>
 {% endblock %}
 
@@ -13,30 +12,32 @@
 {% block content %}
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 <!--need form!!-->
+<form id="create" method="post">
     {% csrf_token %}
 
     <div class="row" id="contest_name" style="margin: 20px -15px;">
         <div class="col-sm-1"></div>
         <div class="col-sm-2">コンテスト名</div>
         <div class="col-sm-5 form-inline">
-            <input type="text" class="form-control input-sm" id="input_name" placeholder="コンテスト名" size=60 required>
+            <input type="text" class="form-control input-sm" id="input_name" placeholder="コンテスト名" size=60 required />
         </div>
         <div class="col-sm-2">
-            <input type="submit" value="作成" class="form-control input-sm btn btn-primary" id="submit" />
+            <input type="button" value="作成" class="form-control input-sm btn btn-primary" id="submit" />
+            <!--<button id="submit" class="btn btn-primary">作成</button>-->
         </div>
     </div>
     <div class="row" id="start_time">
         <div class="col-sm-1"></div>
         <div class="col-sm-2">開始日時</div>
         <div class="col-sm-5 form-inline">
-            <input type="text" class="form-control input-sm date" id="input_start" placeholder="開始日時" />
+            <input type="text" class="form-control input-sm date" id="input_start" placeholder="開始日時" required />
         </div>
     </div>
     <div class="row" id="end_time">
         <div class="col-sm-1"></div>
         <div class="col-sm-2">終了日時</div>
         <div class="col-sm-5 form-inline">
-            <input type="text" class="form-control input-sm date" id="input_end" placeholder="終了日時">
+            <input type="text" class="form-control input-sm date" id="input_end" placeholder="終了日時" required />
         </div>
     </div>
     <div class="row" style="margin: 10px -15px;">
@@ -48,11 +49,10 @@
                     <input type="text" class="form-control input-sm" id="input_add_problem" placeholder="問題番号">
                 </div>
                 <div class="col-sm-2">
-                    <button id="add_problem" class="btn btn-success btn-add">追加</button>
+                    <button id="add_problem" class="btn btn-success btn-add" type="button">追加</button>
                 </div>
             </div>
-            <div id="add_problem_content" class="added_content">
-            </div>
+            <div id="add_problem_content" class="added_content"></div>
         </div>
         <div id="members" class="col-sm-5">
             <div class="row">
@@ -61,14 +61,13 @@
                     <input type="text" class="form-control input-sm" id="input_add_user" placeholder="ユーザ名">
                 </div>
                 <div class="col-sm-2">
-                    <button id="add_user" class="btn btn-success btn-add">追加</button>
+                    <button id="add_user" class="btn btn-success btn-add" type="button">追加</button>
                 </div>
             </div>
-            <div id="add_user_content" class="added_content">
-            </div>
+            <div id="add_user_content" class="added_content"></div>
         </div>
     </div>
 
-<!--</form>-->
+</form>
 
 {% endblock %}

@@ -44,7 +44,7 @@ def check_problem(request):
         res = ''
         for prob in problems:
             if str(prob.problem_id) == prob_id:
-                res = '%4s: %s' % (prob_id, prob.name)
+                res = 'No.%4s: %s' % (prob_id, prob.name)
                 break
         response = json.dumps({'name': res})
         return HttpResponse(response, content_type='text/javascript')
