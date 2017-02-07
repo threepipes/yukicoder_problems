@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
+from django.urls import reverse
 
 # Create your views here.
 from .models import Problem, User, Submission, Contest
@@ -17,7 +18,26 @@ def create_contest(request):
     if request.method == 'POST':
         contest_set = Contest.objects
         contest_id = len(contest_set.all())
-        # TODO
+        try:
+            problems = request.POST.getlist('problem')
+            users = request.POST.getlist('user')
+            title = request.POST['title'] # need set name to html
+            start_time = request.POST['start_time']
+            end_time = request.POST['end_time']
+        except (KeyError):
+            return render(request, 'virtual_contest/create_contest.html', {
+                'error_message': '必須項目の入力が不足しています'
+            })
+        else:
+            new_contest = Contest(
+                start_time=start_time,
+                end_time=end_time,
+                name=title
+            )
+            new_contest.problems.add(problems)
+            new_contest.users.add(users)
+            new_contest.save()
+            return HttpResponseRedirect(reverse('virtual_contest:contest', args=(contest_id,)))
     else:
         return render(request, 'virtual_contest/create_contest.html')
 
