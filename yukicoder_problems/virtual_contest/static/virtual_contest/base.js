@@ -61,7 +61,7 @@ jQuery(function(){
                     // 文字列じゃなくてjQueryの記法に直す TODO
                     $(content_name).append(
                         '           <div class="'+ content_type +'">'+
-                        '               <input type="hidden" name="'+ content_type +'[]" value="'+ name +'">'+
+                        '               <input type="hidden" name="'+ content_type +'" value="'+ name +'">'+
                         '               <div class="col-sm-6">'+ display_name +'</div>'+
                         '               <div class="col-sm-6">'+
                         '                   <button class="btn btn-default delete" type="button">削除</button>'+
@@ -77,7 +77,7 @@ jQuery(function(){
         $(this).parent().parent().remove();
     });
 
-    $('#submit').click(function(){
+    $('#submit_button').click(function(){
         var users = $('.user').length;
         var probs = $('.problem').length;
         var contest_name = $(':text#input_name');
